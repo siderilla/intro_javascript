@@ -62,10 +62,13 @@
 //     j++;
 // }
 
+//numero a caso con la funzione math.random
+const secretNumber = Math.round(Math.random() * 10);
+
 while (true) {
     const guessString = prompt("guess the num from 1 to 10");
     const guessedNumber = parseInt(guessString);
-    if (guessedNumber === 6){
+    if (guessedNumber === secretNumber){
         alert("BRAVO!");
         break;
     } else {
