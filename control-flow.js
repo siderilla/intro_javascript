@@ -42,8 +42,12 @@
 //     console.log("Buy a coffin");
 // }
 
+/////////////////////////////////
+
 // CYCLES
-// while
+
+// // while
+
 // let i = 0;
 // while (i < 11) {
 //     console.log(i);
@@ -63,17 +67,95 @@
 // }
 
 //numero a caso con la funzione math.random
-const secretNumber = Math.round(Math.random() * 10);
+// const secretNumber = Math.round(Math.random() * 10);
 
-while (true) {
-    const guessString = prompt("guess the num from 1 to 10");
-    const guessedNumber = parseInt(guessString);
-    if (guessedNumber === secretNumber){
-        alert("BRAVO!");
-        break;
-    } else {
-        alert("Try again");
-    }
-}
-// do while
-// for
+// while (true) {
+//     const guessString = prompt("guess the num from 1 to 10");
+//     const guessedNumber = parseInt(guessString);
+//     if (guessedNumber === secretNumber){
+//         alert("BRAVO!");
+//         break;
+//     } else {
+//         alert("Try again");
+//     }
+// }
+
+// let startingString = '';
+
+// while(startingString.length <= 10){
+//     startingString = startingString + '*';
+// }
+// console.log(startingString);
+
+
+// // do while
+
+// const pippo = 10;
+// const pluto = 20;
+
+// while (pippo > pluto) {
+//     console.log('sono entrato');
+// }
+
+// do {
+//     console.log('sono dentro do')
+// } while (pippo > pluto);
+
+// // for
+
+// for (let i = 0; i < 10; i++) {
+//     console.log("ciclo for " + i);
+// }
+
+// //ciclo infinito
+
+// for (let i = 0; i < Infinity; i++) {
+
+// }
+
+// for (;;)
+
+// let startingString = "";
+// for (;;) {
+//     startingString += '°'
+//     if (startingString.length === 10) {
+//         break;
+//     }
+// }
+// console.log(startingString);
+
+// for (let y = 0; y <= 3; y++) {
+//     for (let x = 0; x <= 3; x++) {
+//         console.log(`(x: ${x}, y: ${y})`)
+//     }
+    
+// }
+
+// for (let y = 0; y <= 3; y++) {
+//     let row = '';
+//     for (let x = 0; x <= 3; x++) {
+//         row += `(x: ${x}, y: ${y}) `;
+//     }
+//     console.log(row);   
+// }
+
+// ctrl + k + f per formattare il codice indentazioni
+
+// // switch lo usiamo per gestire scelte multiple molto lunghe
+
+// const ageString = prompt('in che anno sei nato?')
+
+// switch (ageString) {
+//     case "1978":
+//         alert("sei nato nel mio stesso anno")
+//         break;
+//     case "1990":
+//         alert("mondiali")
+//         break;
+//     case "1984":
+//         alert("laura")
+//         break;
+//     default:
+//         alert("altro")
+//         break;
+// }
