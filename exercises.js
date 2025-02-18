@@ -71,20 +71,6 @@
 // }
 
 
-// ESERCIZIO A CASA
-// 1 - usando un ciclo crea un apiramide come quella del primo esercizio del libro utilizzando solo UN console.log
-// let startingString = '';
-// while (startingString.length < 7) {
-//     startingString = startingString + '#';
-//     while ()
-// }
-//
-// console.log(startingString);
-
-// 2 - usando un ciclo crea una piramide come quella del primo esercizio del libro ma capovolta
-
-// 3 - usando un ciclo crea una piramide come quella dell'esempio
-
 // let i = " "
 // let j = "#"
 // startString = "";
