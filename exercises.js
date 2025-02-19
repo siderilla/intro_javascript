@@ -70,7 +70,7 @@
 //         }
 // }
 
-
+// SCACCHIERA
 // let i = " "
 // let j = "#"
 // startString = "";
@@ -93,15 +93,25 @@
 //     console.log(startString + "\n")
 // }
 
-let size = 8;
-for (let y = 1; y <= size; y++) {
-    startString = "";
-    for (let x = 1; x <= size; x++) {
-        if ((x + y) % 2 === 0) {
-            startString = startString + " ";
-        } else {
-            startString = startString + "#";
-        }
+// let size = 8;
+// for (let y = 1; y <= size; y++) {
+//     startString = "";
+//     for (let x = 1; x <= size; x++) {
+//         if ((x + y) % 2 === 0) {
+//             startString += " ";
+//         } else {
+//             startString += "#";
+//         }
+//     }
+//     console.log(startString + "\n")
+// }
+
+let chessboard = '';
+for (let x = 0; x < 8; x++) {
+    if (x % 2 === 0) {
+        console.log(` # # # #\n`);
+    } else {
+        console.log(`# # # # \n`);
     }
-    console.log(startString + "\n")
 }
+

@@ -10,6 +10,10 @@
 // 	console.log(startingString);
 // }
 
+// for (let i = 0; i <= 7; i++) {
+// 	console.log('#'.repeat(i));
+// }
+
 // let i = 7;
 // let startingString = '';
 // while (i != 0) {
@@ -52,34 +56,35 @@
 //  #######
 // #########
 
-let i = 1;
-while (i < 9) {
-	let finalString = '';
-	let j = 0;
+// let i = 1;
+// while (i < 9) {
+// 	let finalString = '';
+// 	let j = 0;
 
-	if (i === 1) {
-		j = 9 - i;
-		let spaceChar = j / 2;
-		for (let k = 0; k < spaceChar; k++) {
-			finalString += (' ');
-		}
-		finalString += ('#'); 
-	} else {
-		j = 9 - (i + 2);
-		let spaceChar = j / 2;
-		for (let k = 0; k < spaceChar; k++) {
-			finalString += (' ');
-		}
-		// quando i = 1 stampi e ciao !!!!!peròòò!!!! 1 * 2 = 2 - 1 = 1 !!!!!
-		// quando i = 2 siamo alla seconda riga però noi abbiamo bisogno
-		// di tre hashtag i * 2 - 1?
-		// quando i = 3 * 2 = 6 - 1 = 5
-		// ma come faccio a usare direttamente (i + 2)?
-		finalString += ('#');
-	}
-	console.log(finalString);
-	i++;
-}
+// 	if (i === 1) {
+// 		j = 9 - i;
+// 		let spaceChar = j / 2;
+// 		for (let k = 0; k < spaceChar; k++) {
+// 			finalString += (' ');
+// 		// anche qui si può usare .repeat
+// 		}
+// 		finalString += ('#'); 
+// 	} else {
+// 		j = 9 - (i + 2);
+// 		let spaceChar = j / 2;
+// 		for (let k = 0; k < spaceChar; k++) {
+// 			finalString += (' ');
+// 		}
+// 		// quando i = 1 stampi e ciao !!!!!peròòò!!!! 1 * 2 = 2 - 1 = 1 !!!!!
+// 		// quando i = 2 siamo alla seconda riga però noi abbiamo bisogno
+// 		// di tre hashtag i * 2 - 1?
+// 		// quando i = 3 * 2 = 6 - 1 = 5
+// 		// ma come faccio a usare direttamente (i + 2)?
+// 		finalString += ('#');
+// 	}
+// 	console.log(finalString);
+// 	i++;
+// }
 
 // // COMMENTO - prima tratto la prima riga come caso speciale perché per ogni riga
 // // successiva mi basta aggiungere l'hashtag x 2 volte in più rispetto a quelli
@@ -103,6 +108,10 @@ while (i < 9) {
 // while (i < 100) {
 // 	i++;
 // 	console.log(i);
+// }
+
+// for (let i = -100; i <= 100; i++) {
+// 	console.log(i);	
 // }
 
 // // COMMENTO - beh l'unico accorgimento va fatto sul numero di partenza: 
@@ -150,3 +159,5 @@ while (i < 9) {
 
 // 10 - chiedi all'utente quanti anni ha e il suo genere e digli 
 // quante ore ha gia' vissuto e quante ore gli rimangono da vivere
+
+
