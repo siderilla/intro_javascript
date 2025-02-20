@@ -2,6 +2,12 @@
 // // 1 - usando un ciclo crea una piramide come quella del primo 
 // // esercizio del libro utilizzando solo UN console.log
 
+// let pyramid = '';
+// for (let i = 0; i < 7; i++) {
+// 	pyramid += '#';
+// 	console.log(pyramid);
+// }
+
 // let i = 0;
 // let startingString = '';
 // while (i < 7) {
@@ -31,6 +37,14 @@
 // 2 - usando un ciclo crea una piramide come quella del primo 
 // esercizio del libro ma capovolta
 
+// let pyramid = '';
+// for (let i = 7; i > 0; i--) {
+// 	pyramid = '';
+// 	for (let j = 0; j < i; j++) {
+// 		pyramid += '#';		
+// 	}
+// 	console.log(pyramid);
+// }
 
 // let startingString = '#######';
 // let i = startingString.length;
@@ -55,6 +69,19 @@
 //   #####
 //  #######
 // #########
+
+for (let i = 1; i <= 5; i++) { // conto le righe
+	let spaces = '';
+	let hashes = '';
+
+	for (let j = 0; j < 5 - 1; j++) { // conto spazi prima riga = 1 dunque 5 - 1 = 4 spazi
+		spaces += ' '; // aggiungo spazi nella stringa	
+	}
+	for (let j = 0; j < 2 * i - 1; j++) { // conto gli # 2 * 1(i) - 1 perché a ogni riga +2
+		hashes += '#'; // aggiungo hashtag nella stringa	
+	}
+	console.log(spaces + hashes); // stampo spazi e hashtag allo stato attuale
+}
 
 // let i = 1;
 // while (i < 9) {
@@ -142,11 +169,26 @@
 // 6 - usando un ciclo logga i numeri da 1 a 100 mettendo 
 // un asterisco vicino ai quadrati perfetti
 
-// // COMMENTO - ummm itero i da 1 a 100 e anche j e aggiungo una condizione che verifica
-// // se j * j = i ? FORSE ??????
+// for (let i = 1; i <= 100; i++) {
+// 	if (Math.sqrt(i) % 1 === 0) {
+// 		console.log(i + '*');
+// 	} else {
+// 		console.log(i);
+// 	}
+// }
 
 // 7 - chiedi all'utente un numero (positivo) di partenza 
 // e poi logga tutti i numeri dal numero dato fino a 0
+
+// const inputNum = prompt("Scrivi un numero positivo");
+// if (inputNum < 0) {
+// 	inputNum = prompt("Noooo, ti ho chiesto positivo!");
+// } else {
+// 	for (let i = inputNum; i > 0; i--) {
+// 		console.log(i);
+// 	}
+// 	console.log(0);
+// }
 
 // // COMMENTO - qua si usa prompt con una condizione che accetta solo i > 0
 // // e poi itera i-- e stampa tutto
@@ -154,10 +196,66 @@
 // 8 - chiedi all'utente un numero (qualsiasi) di partenza 
 // e poi logga tutti i numeri dal numero dato fino a 100
 
+// const inputNum = prompt("Scrivi un numero");
+// if (inputNum < 100) {
+// 	for (let i = inputNum; i < 100; i++) {
+// 		console.log(i);
+// 	}
+// } else if (inputNum === 100) {
+// 		console.log(100);
+// } else {
+// 	for (let i = inputNum; i > 100; i--) {
+// 		console.log(i);
+// 	}
+// 	console.log(100);
+// }
+
 // 9 - chiedi all'utente due numeri e logga tutti i numeri 
 // pari compresi tra i numeri forniti dall'utente
+
+// const inputNum = prompt("Scrivi un numero");
+// const inputNum2 = prompt("Scrivi un altro numero");
+// if (inputNum < inputNum2) {
+// 	for (let i = inputNum; i <= inputNum2; i++) {
+// 		let isEven = (i % 2 === 0);
+// 		if (isEven === true) {
+// 			console.log(i)
+// 		}
+// 	}
+// } else {
+// 	for (let i = inputNum2; i <= inputNum; i++) {
+// 		let isEven = (i % 2 === 0);
+// 		if (isEven === true) {
+// 			console.log(i)
+// 		}	
+// 	}
+// }
+
+// // COMMENTO - ho messo il controllo del numero pari dentro ciascun
+// // for per azzerare il valore del contatore i che prende in ogni for
+// // il numero in entrata scelto dall'utente
 
 // 10 - chiedi all'utente quanti anni ha e il suo genere e digli 
 // quante ore ha gia' vissuto e quante ore gli rimangono da vivere
 
+// const userGender = prompt("M o F?");
+// const userAge = prompt("Quanti anni hai?");
+// let hoursPerYear = 8766;
+// if (userGender === "F" || userGender === "f") {
+// 	let totalHoursLived = userAge * hoursPerYear;
+// 	console.log("Fino ad oggi hai vissuto " + totalHoursLived + " ore");
+// 	let totalHoursleft = (86 - userAge) * hoursPerYear;
+// 	console.log("Ti restano circa " + totalHoursleft + " ore da vivere");
+// } else if (userGender === "M" || userGender === "m") {
+// 	let totalHoursLived = userAge * hoursPerYear;
+// 	console.log("Fino ad oggi hai vissuto " + totalHoursLived  + " ore");
+// 	let totalHoursleft = (81 - userAge) * hoursPerYear;
+// 	console.log("Ti restano circa " + totalHoursleft + " ore da vivere");
+// } else {
+// 	console.log("Se sei fluido vivi di più");
+// }
 
+// // COMMENTO - presupponendo un'età media per la mortalità IN ITALIA 
+// // tra genere maschile(81) e femminile(86), impostiamo questi valori limite
+// // a cui viene sottratta l'età dell'utente. con il risultato facciamo il calcolo
+// // delle ore per anno presenti (che sono 8766 per year)
