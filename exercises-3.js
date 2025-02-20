@@ -30,7 +30,8 @@
 // console.log(isEven(-20));
 
 function countBs(counter) {
-// entro nell'array della stringa e itero
+
+    // entro nell'array della stringa e itero
 // se i = 'B'
 // i++;
 // return(i)
