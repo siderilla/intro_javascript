@@ -38,47 +38,150 @@ console.log(celsiusToFarh(array1));
 ///////////////////////  3  ////////////////////////
 // fare la media dei valori 
 
-function sumAllElem(arrayOfNum) {
-    let accumulator = 0;
+function avarageNumb(arrayOfNumb) {
+	let sumOfElem = 0;
+	let avarageElem = 0;
+	for (let i = 0; i < arrayOfNumb.length; i++) {
+        const element = arrayOfNumb[i];
 
-    for (let i = 0; i < arrayOfNum.length; i++) {
-        const element = arrayOfNum[i];
-        
-        accumulator = accumulator + element;
-//// SOMMA FATTA - MANCA FARE LA MEDIA /////
-        }
-    return accumulator;
+        sumOfElem = sumOfElem + element;
+		avarageElem = sumOfElem / arrayOfNumb.length;
+    }
+	return (avarageElem);
 }
 
-console.log(sumAllElem(array1));
-
-// function avarageNumb(arrayOfNumb) {
-//     const newArray = [];
-//     for (let i = 0; i < arrayOfNumb.length; i++) {
-//         const element = arrayOfNumb[i];
-//         const sumOfElem =  
-//     }
-// }
+console.log(avarageNumb(array1));
 
 ///////////////////////  4  ////////////////////////
 // restituire valore più basso e il più alto
+
+function minAndMaxValue(arrayOfNumb) {
+	let min = []; 
+	let max = [];
+// siccome javascript casta da solo i valori che vengono 
+// assegnati nelle variabili, avremmo potuto inizializzare min
+// e max anche come stringe ovvero: let min = '';
+
+	for (let i = 0; i < arrayOfNumb.length; i++) {
+		if (arrayOfNumb[i] < min) {
+			min = arrayOfNumb[i];
+		}
+		if (arrayOfNumb[i] > max) {
+			max = arrayOfNumb[i];
+		}
+	}
+	return [min, max];
+}
+
+console.log(minAndMaxValue(array1));
+
+// se trovi un valore minore di quello corrente aggiorni 
+// finché non finisci l'iterazione nell'array idem con max
 
 const array2 = ['pippo', 'pluto', 'paperino', 'qui', 'quo', 'qua', 'clarabella', 'minnie']
 
 ///////////////////////  5  ////////////////////////
 // filtrare tutti i nomi più grandi di 4 char
+// PRIMO APPROCCIO:
+// in questo caso, dentro all'array devo anche iterare dentro 
+// ciascuna stringa e contare il num di char --- SBAGLIATO!!
+
+function countStringChar(arrayOfStrings) {
+	const newArray = [];
+	let myString = '';
+
+	for (let i = 0; i < arrayOfStrings.length; i++) {
+		myString = arrayOfStrings[i];
+		if (myString.length > 4) {
+				newArray.push(myString);
+		}	
+// io avevo messo un ciclo for in più con l'idea di
+// contare i char di ciascuna stringa, ma grazie a .length
+// non è necessario farlo!	
+	}
+	return newArray;
+}
+
+console.log(countStringChar(array2));
 
 ///////////////////////  6  ////////////////////////
 // trasformare tutte le stringhe in maiuscolo
+// PROVA :
+const string = 'ANNA';
+let newStr = '';
+for (let i = 0; i < string.length; i++) {
+	// const element = string[i];
+	newStr = string[i].toLowerCase(string);
+	}
+console.log(newStr);
+
+function lowerToUpper(arrayOfStrings) {
+	const newArray = [];
+	let myString = '';
+
+	for (let i = 0; i < arrayOfStrings.length; i++) {
+		myString = arrayOfStrings[i].toUpperCase(arrayOfStrings[i]);
+		// questa roba è un aborto siamo sicuri che 
+		// non ci sia altro modo per scriverla?
+		newArray.push(myString);
+	}
+	return newArray;
+}
+
+console.log(lowerToUpper(array2));
+
+// COMMENTO - in C accedevo alla tavola ascii per trovare il
+// valore corrispondente dell'alfabeto minuscolo e lo convertivo 
+// in maiuscolo iterando con una condizione che verificava
+// if char >= 'a' && char <= 'z' 
+// allora fai la conversione facendo scalare il valore di 'a'
+// verso il valore di 'A' con una somma semplice
+// in javascript forse c'è un modo più semplice e immediato
+// per farlo, ma  ci devo ragionare su
 
 ///////////////////////  7  ////////////////////////
 // mettere SOLO le iniziali maiuscole
 
+function onlyInitialsToUpper(arrayOfStrings) {
+	const newArray = [];
+	let myString = '';
+
+	for (let i = 0; i < arrayOfStrings.length; i++) {
+		myString = arrayOfStrings[i].toUpperCase(arrayOfStrings[i]);
+		newArray.push(myString[0]);
+	}
+	return newArray;
+}
+
+console.log(onlyInitialsToUpper(array2));
+
 ///////////////////////  8  ////////////////////////
 // restituire una stringa composta dall'iniziale delle parole
 
+function allInitialsToString(arrayOfStrings) {
+	let myString = '';
+
+	for (let i = 0; i < arrayOfStrings.length; i++) {
+		myString += arrayOfStrings[i][0];
+	}
+	return myString;
+}
+
+console.log(allInitialsToString(array2));
+
 ///////////////////////  9  ////////////////////////
 // contare tutti i char di tutte le stringhe (unico return)
+
+function countAllChars(arrayOfStrings) {
+	let myString = '';
+
+	for (let i = 0; i < arrayOfStrings.length; i++) {
+		myString += arrayOfStrings[i];
+	}
+	return myString.length;
+}
+
+console.log(countAllChars(array2));
 
 ///////////////////////  10  ////////////////////////
 // eliminare le vocali dalle stringhe
