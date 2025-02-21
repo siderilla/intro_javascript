@@ -56,11 +56,11 @@ console.log(avarageNumb(array1));
 // restituire valore più basso e il più alto
 
 function minAndMaxValue(arrayOfNumb) {
-	let min = []; 
-	let max = [];
+	let min = []; // 
+	let max = []; // meglio = -Infinity
 // siccome javascript casta da solo i valori che vengono 
 // assegnati nelle variabili, avremmo potuto inizializzare min
-// e max anche come stringe ovvero: let min = '';
+// e max anche come stringhe ovvero: let min = '';
 
 	for (let i = 0; i < arrayOfNumb.length; i++) {
 		if (arrayOfNumb[i] < min) {
@@ -88,10 +88,10 @@ const array2 = ['pippo', 'pluto', 'paperino', 'qui', 'quo', 'qua', 'clarabella',
 
 function countStringChar(arrayOfStrings) {
 	const newArray = [];
-	let myString = '';
+	// let myString = '';
 
 	for (let i = 0; i < arrayOfStrings.length; i++) {
-		myString = arrayOfStrings[i];
+		const myString = arrayOfStrings[i];
 		if (myString.length > 4) {
 				newArray.push(myString);
 		}	
@@ -107,22 +107,23 @@ console.log(countStringChar(array2));
 ///////////////////////  6  ////////////////////////
 // trasformare tutte le stringhe in maiuscolo
 // PROVA :
-const string = 'ANNA';
-let newStr = '';
-for (let i = 0; i < string.length; i++) {
-	// const element = string[i];
-	newStr = string[i].toLowerCase(string);
-	}
-console.log(newStr);
+// const string = 'ANNA';
+// let newStr = '';
+// for (let i = 0; i < string.length; i++) {
+// 	// const element = string[i];
+// 	newStr = string[i].toLowerCase(string);
+// 	}
+// console.log(newStr);
 
 function lowerToUpper(arrayOfStrings) {
 	const newArray = [];
-	let myString = '';
-
+	// let myString = '';
+    // è inutile inizializzare la stringa vuota qui perché poi dentro la si chiama di nuovo
 	for (let i = 0; i < arrayOfStrings.length; i++) {
-		myString = arrayOfStrings[i].toUpperCase(arrayOfStrings[i]);
-		// questa roba è un aborto siamo sicuri che 
-		// non ci sia altro modo per scriverla?
+        const myString = arrayOfStrings[i].toUpperCase();
+		// myString = arrayOfStrings[i].toUpperCase(arrayOfStrings[i]);
+        // è inutile inserire la mia stringa anche dentro le parentesiiii
+        // arrayOfStrings[i].toUpperCase() === toUpperCase(arrayOfStrings[i])
 		newArray.push(myString);
 	}
 	return newArray;
@@ -140,20 +141,21 @@ console.log(lowerToUpper(array2));
 // per farlo, ma  ci devo ragionare su
 
 ///////////////////////  7  ////////////////////////
-// mettere SOLO le iniziali maiuscole
+// mettere SOLO le iniziali maiuscole (ma lasciare il resto della stringa minuscola)
 
 function onlyInitialsToUpper(arrayOfStrings) {
 	const newArray = [];
-	let myString = '';
+	// let myString = '';
 
 	for (let i = 0; i < arrayOfStrings.length; i++) {
-		myString = arrayOfStrings[i].toUpperCase(arrayOfStrings[i]);
-		newArray.push(myString[0]);
+		const myString = arrayOfStrings[i]; 
+		newArray.push(myString[0].toUpperCase());
+        // ergo manca sommare il resto della stringa - usa slice per tagliare la stringa
 	}
 	return newArray;
 }
 
-console.log(onlyInitialsToUpper(array2));
+console.log('solo le iniziali: ', onlyInitialsToUpper(array2));
 
 ///////////////////////  8  ////////////////////////
 // restituire una stringa composta dall'iniziale delle parole
@@ -185,6 +187,18 @@ console.log(countAllChars(array2));
 
 ///////////////////////  10  ////////////////////////
 // eliminare le vocali dalle stringhe
+
+function noMoreVowels(arrayOfStrings) {
+    let myString = '';
+
+    for (let i = 0; i < arrayOfStrings.length; i++) {
+        // const element = arrayOfStrings[i];
+        if (arrayOfStrings[i] !== 'a') {
+
+        }
+        
+    }
+}
 
 ///////////////////////  11  ////////////////////////
 // restituire un array di numeri che sono le lunghezze delle singole parole
