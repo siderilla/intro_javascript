@@ -7,8 +7,6 @@
 // for (let i = 0; i < 7; i++) {
 // 	pyramid += '#';
 // 	console.log(pyramid);
-<<<<<<< HEAD
-=======
 // }
 
 // let i = 0;
@@ -17,7 +15,6 @@
 // 	i++;
 //     startingString = startingString + '#';
 // 	console.log(startingString);
->>>>>>> 228c92746825e3b315ed1ef63b752c537f3374da
 // }
 
 // COMMENTO - durante l'iterazione alla stringa pyramid si aggiungono #
@@ -276,8 +273,4 @@ for (let i = 1; i <= 5; i++) { // conto le righe
 // // COMMENTO - presupponendo un'età media per la mortalità IN ITALIA 
 // // tra genere maschile(81) e femminile(86), impostiamo questi valori limite
 // // a cui viene sottratta l'età dell'utente. con il risultato facciamo il calcolo
-<<<<<<< HEAD
 // // delle ore per anno presenti (che sono 8766 per year)
-=======
-// // delle ore per anno presenti (che sono 8766 per year)
->>>>>>> 228c92746825e3b315ed1ef63b752c537f3374da

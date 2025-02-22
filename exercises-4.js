@@ -1,218 +1,155 @@
-const array1 = [23, 14, 56, 3, 0, -1, 55, -12, 60, 8];
-
 ///////////////////////  1  ////////////////////////
-// filtrare tutti i numeri minori o uguali a zero
+// creare un oggetto studente per ogni partecipante al corso
+// l'oggetto dovrà avere le seguenti keys:
+// - name, surname, gender, marks, yob, nationality
+// mettete tutti gli oggetti dentro un array
 
-function negativeNumbAndZero(arrayOfNumb) {
-    const newArray = [];
-
-    for (let i = 0; i < arrayOfNumb.length; i++) {
-        const element = arrayOfNumb[i];
-
-        if(element <= 0) {
-            newArray.push(element);
-        }
-    }
-    return newArray;
+const lorenzo = {
+    name: 'lorenzo',
+    surname: 'puppo',
+    yob: 1995,
+    nationality: 'italy',
+    gender: 'm',
 }
+  
+const Jan = {
+    name: 'jan',
+    surname: 'stigliani',
+    yob: 2000,
+    nationality: 'italy',
+    gender: 'm'
+}
+  
+const giovanni = {
+    name: 'giovanni',
+    surname: 'sussarellu',
+    yob: 1981,
+    nationality: 'italy',
+    gender: 'm'
+}
+  
+  const sara =  {
+    name: 'sara',
+    surname: 'de prà',
+    yob: 1989,
+    nationality: 'italy',
+    gender: 'fluid'
+  }
+  
+  const jeremias = {
+    name: 'jeremias',
+    surname: 'cedeno',
+    yob: 2003,
+    nationality: 'ecuador',
+    gender: 'm'
+  }
+  
+  const laura = {
+    name: 'laura',
+    surname: 'mazza',
+    yob: 1984,
+    nationality: 'italy',
+    gender: 'f'
+  }
+  
+  const eusebio = {
+    name: 'eusebio',
+    surname: 'veizi',
+    yob: 1993,
+    nationality: 'albanese',
+    gender: 'peanut'
+  }
+  
+  const hugo = {
+    name: 'hugo',
+    surname: 'martinez',
+    yob: 1994,
+    nationality: 'elSalvador',
+    gender: 'f'
+  }
 
-console.log(negativeNumbAndZero(array1));
+const allStudents = [lorenzo, Jan, giovanni, sara, jeremias, laura, eusebio, hugo]
+console.log(allStudents);
 
 ///////////////////////  2  ////////////////////////
-// convertire celsius in farhenheit
+// scrivere una funzione che restituisca l'età media degli studenti
 
-function celsiusToFarh(arrayOfNumb) {
-    const newArray = [];
-
-    for (let i = 0; i < arrayOfNumb.length; i++) {
-        const element = arrayOfNumb[i];
-        const convertion = (element * 9/5) + 32;
-        newArray.push(convertion);
-    }
-    return newArray;
+function ageAvarage(array) {
+    let sum = 0;
+	for (let i = 0; i < array.length; i++) {
+		const element = array[i].yob;
+		let age = 2025 - element;
+		sum += age;
+	}
+	let avarage = sum / array.length;
+	return avarage;
 }
 
-console.log(celsiusToFarh(array1));
-
+console.log(ageAvarage(allStudents));
 
 ///////////////////////  3  ////////////////////////
-// fare la media dei valori 
+// scrivere una funzione che restituisca un array di stringhe
+// ogni stringa dovrà avere questo formato "nome/cognome"
 
-function avarageNumb(arrayOfNumb) {
-	let sumOfElem = 0;
-	let avarageElem = 0;
-	for (let i = 0; i < arrayOfNumb.length; i++) {
-        const element = arrayOfNumb[i];
-
-        sumOfElem = sumOfElem + element;
-		avarageElem = sumOfElem / arrayOfNumb.length;
-    }
-	return (avarageElem);
+function nameSurname(array) {
+	const newArray = [];
+	let newStr = '';
+	for (let i = 0; i < array.length; i++) {
+		const element = array[i].name + '/' + array[i].surname;
+		newStr = element;
+		newArray.push(newStr);
+	}
+	return newArray;
 }
 
-console.log(avarageNumb(array1));
+console.log(nameSurname(allStudents));
 
 ///////////////////////  4  ////////////////////////
-// restituire valore più basso e il più alto
+// scrivere una funzione che restituisca la somma dei maschi e delle femmine
 
-function minAndMaxValue(arrayOfNumb) {
-	let min = []; // 
-	let max = []; // meglio = -Infinity
-// siccome javascript casta da solo i valori che vengono 
-// assegnati nelle variabili, avremmo potuto inizializzare min
-// e max anche come stringhe ovvero: let min = '';
-
-	for (let i = 0; i < arrayOfNumb.length; i++) {
-		if (arrayOfNumb[i] < min) {
-			min = arrayOfNumb[i];
-		}
-		if (arrayOfNumb[i] > max) {
-			max = arrayOfNumb[i];
+function howMuchGender(array) {
+	let sumMale = 0;
+	let sumFemale = 0;
+	let otherGender = 0;
+	for (let i = 0; i < array.length; i++) {
+		if (array[i].gender === 'f') {
+			sumFemale++;
+		} else if (array[i].gender === 'm') {
+			sumMale++;
+		} else {
+			otherGender++;
 		}
 	}
-	return [min, max];
+	console.log('total m: ' + sumMale);
+	console.log('total f: ' + sumFemale);
+	console.log('other: ' + otherGender);
 }
 
-console.log(minAndMaxValue(array1));
-
-// se trovi un valore minore di quello corrente aggiorni 
-// finché non finisci l'iterazione nell'array idem con max
-
-const array2 = ['pippo', 'pluto', 'paperino', 'qui', 'quo', 'qua', 'clarabella', 'minnie']
+howMuchGender(allStudents);
 
 ///////////////////////  5  ////////////////////////
-// filtrare tutti i nomi più grandi di 4 char
-// PRIMO APPROCCIO:
-// in questo caso, dentro all'array devo anche iterare dentro 
-// ciascuna stringa e contare il num di char --- SBAGLIATO!!
-
-function countStringChar(arrayOfStrings) {
-	const newArray = [];
-	// let myString = '';
-
-	for (let i = 0; i < arrayOfStrings.length; i++) {
-		const myString = arrayOfStrings[i];
-		if (myString.length > 4) {
-				newArray.push(myString);
-		}	
-// io avevo messo un ciclo for in più con l'idea di
-// contare i char di ciascuna stringa, ma grazie a .length
-// non è necessario farlo!	
-	}
-	return newArray;
-}
-
-console.log(countStringChar(array2));
+// scrivere una funzione che restituisca la media delle medie degli studenti
 
 ///////////////////////  6  ////////////////////////
-// trasformare tutte le stringhe in maiuscolo
-// PROVA :
-// const string = 'ANNA';
-// let newStr = '';
-// for (let i = 0; i < string.length; i++) {
-// 	// const element = string[i];
-// 	newStr = string[i].toLowerCase(string);
-// 	}
-// console.log(newStr);
+// scrivere una funzione che restituisca un oggetto così strutturato:
+// {nationality1:[student1Name, student2Name, ...], nationality2:[student1Name, student2Name, ...]}
 
-function lowerToUpper(arrayOfStrings) {
-	const newArray = [];
-	// let myString = '';
-    // è inutile inizializzare la stringa vuota qui perché poi dentro la si chiama di nuovo
-	for (let i = 0; i < arrayOfStrings.length; i++) {
-        const myString = arrayOfStrings[i].toUpperCase();
-		// myString = arrayOfStrings[i].toUpperCase(arrayOfStrings[i]);
-        // è inutile inserire la mia stringa anche dentro le parentesiiii
-        // arrayOfStrings[i].toUpperCase() === toUpperCase(arrayOfStrings[i])
-		newArray.push(myString);
+function orderByNationality(array) {
+	const nationalityList = {};
+	for (let i = 0; i < array.length; i++) {
+		const nationality = array[i].nationality;
+		const name = array[i].name;
+
+		if (nationalityList[nationality]) { // se esiste già, pusha il nome corrente
+			nationalityList[nationality].push(name);
+		} else {
+			nationalityList[nationality] = [name]; // se non è presente nell'array, crealo e assegna il nome corrente
+		}	
 	}
-	return newArray;
+	return nationalityList;
 }
 
-console.log(lowerToUpper(array2));
-
-// COMMENTO - in C accedevo alla tavola ascii per trovare il
-// valore corrispondente dell'alfabeto minuscolo e lo convertivo 
-// in maiuscolo iterando con una condizione che verificava
-// if char >= 'a' && char <= 'z' 
-// allora fai la conversione facendo scalare il valore di 'a'
-// verso il valore di 'A' con una somma semplice
-// in javascript forse c'è un modo più semplice e immediato
-// per farlo, ma  ci devo ragionare su
+console.log(orderByNationality(allStudents));
 
 ///////////////////////  7  ////////////////////////
-// mettere SOLO le iniziali maiuscole (ma lasciare il resto della stringa minuscola)
-
-function onlyInitialsToUpper(arrayOfStrings) {
-	const newArray = [];
-	// let myString = '';
-
-	for (let i = 0; i < arrayOfStrings.length; i++) {
-		const myString = arrayOfStrings[i]; 
-		newArray.push(myString[0].toUpperCase());
-        // ergo manca sommare il resto della stringa - usa slice per tagliare la stringa
-	}
-	return newArray;
-}
-
-console.log('solo le iniziali: ', onlyInitialsToUpper(array2));
-
-///////////////////////  8  ////////////////////////
-// restituire una stringa composta dall'iniziale delle parole
-
-function allInitialsToString(arrayOfStrings) {
-	let myString = '';
-
-	for (let i = 0; i < arrayOfStrings.length; i++) {
-		myString += arrayOfStrings[i][0];
-	}
-	return myString;
-}
-
-console.log(allInitialsToString(array2));
-
-///////////////////////  9  ////////////////////////
-// contare tutti i char di tutte le stringhe (unico return)
-
-function countAllChars(arrayOfStrings) {
-	let myString = '';
-
-	for (let i = 0; i < arrayOfStrings.length; i++) {
-		myString += arrayOfStrings[i];
-	}
-	return myString.length;
-}
-
-console.log(countAllChars(array2));
-
-///////////////////////  10  ////////////////////////
-// eliminare le vocali dalle stringhe
-
-function noMoreVowels(arrayOfStrings) {
-    let myString = '';
-
-    for (let i = 0; i < arrayOfStrings.length; i++) {
-        // const element = arrayOfStrings[i];
-        if (arrayOfStrings[i] !== 'a') {
-
-        }
-        
-    }
-}
-
-///////////////////////  11  ////////////////////////
-// restituire un array di numeri che sono le lunghezze delle singole parole
-
-const array3 = [[1, 2, 3], [3, 2, 1, 0], [0, 0, 0, 0]];
-
-///////////////////////  12  ////////////////////////
-// restituire un array di numeri che sono le lunghezze dei singoli array
-
-///////////////////////  13  ////////////////////////
-// sommare tutti i numeri in tutti gli array
-
-///////////////////////  14  ////////////////////////
-// sommare tutte le lunghezze degli array
-
-///////////////////////  15  ////////////////////////
-// sommare tutti i numeri con indice uguale e restituire un array di risultati
+// https://jessbayer.com
