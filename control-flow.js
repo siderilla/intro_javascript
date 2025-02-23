@@ -66,7 +66,7 @@
 //     j++;
 // }
 
-//numero a caso con la funzione math.random
+// numero a caso con la funzione math.random
 // const secretNumber = Math.round(Math.random() * 10);
 
 // while (true) {
