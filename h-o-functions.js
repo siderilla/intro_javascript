@@ -53,7 +53,7 @@ function addIndex(num, index) {
 const newArray4 = map(testArray, addIndex);
 console.log('function new add index', newArray4);
 
-const testArray2 = ["ciao", "miao", "bau"];
+const testArray2 = ["ciao", "miao", "bau", "superyeah"];
 function toUpper(str) {
     const newString = str.toUpperCase()
     return newString;
@@ -121,6 +121,56 @@ function isEven(nbr) {
 const newArray12 = filter(testArray, isEven);
 console.log ('keep even map', newArray12);
 
-// funzione tiene dentro testArray tutti i numeri minori di 5
+// funzione che tiene dentro testArray tutti i numeri minori di 5
 const newArray13 = testArray.filter(nbr => nbr < 5);
 console.log ('keep less than 5', newArray13);
+
+// funzione che tiene dentro testArray2 tutte le parole più lunghe di 6 char
+
+const newArray14 = testArray2.filter(str => str.length > 6);
+console.log('char more than 6', newArray14);
+
+// funzione che rimuove da testArray2 tutte le stringhe con indice pari
+
+// const newArray15 = testArray2.filter((str, i) => i % 2 !== 0);
+// in questo caso il parametro str non ci serve, ma va dichiarato comunque
+// in alternativa si può scrivere underscore al posto del parametro inutilizzato:
+const newArray15 = testArray2.filter((_, i) => i % 2 !== 0);
+console.log('only index is odd', newArray15);
+
+// MOSTRO REDUCE
+
+function sumAll(arrayOfNumbers) {
+    let accumulator = 0; // starting point
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+        const element = arrayOfNumbers[i];
+        accumulator += element;
+    }
+    return accumulator;
+}
+
+const newArray16 = sumAll(testArray);
+console.log('sum all', newArray16);
+
+function reduce(array, reducingFunction, startingAccumulator) {
+    let accumulator = startingAccumulator;
+    for (let i = 0; i < array.length; i++) {
+        const current = array[i]; // elemento corrente su array
+        accumulator = reducingFunction(accumulator, current, i, array);
+    }
+    return accumulator;
+}
+
+function sum(accumulator, current) {
+    const newAccumulator = accumulator + current;
+    return newAccumulator;
+}
+
+const sumNumbers = reduce(testArray, sum, 0);
+console.log('reducing map sumAll', sumNumbers);
+
+// ordine parametri: il primo è il ritorno
+
+const sumString = testArray2.reduce((a, c) => a + c, "");
+console.log ('sum all strings', sumString);
+
