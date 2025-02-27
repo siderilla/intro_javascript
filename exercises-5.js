@@ -90,10 +90,10 @@ console.log('avarage of numbers:', avarageAv);
 ///////////////////////  4  ////////////////////////
 // restituire valore più basso e il più alto (REDUCE)
 
-const smallerAndGreaterValue = reduce(array1, function(acc, current) {
+const smallerAndGreaterValue = reduce(array1, function(a, c) {
     return [
-        Math.min(acc[0], current),
-        Math.max(acc[1], current)
+        Math.min(a[0], c),
+        Math.max(a[1], c)
     ];
 }, [Infinity, -Infinity]);
 
@@ -135,16 +135,13 @@ console.log('to upper case initial:', initialToUpper);
 ///////////////////////  8  ////////////////////////
 // restituire una stringa composta dall'iniziale delle parole (REDUCE)
 
-const onlyInitials = array2.reduce((a, c) => a + c, "");
+const onlyInitials = array2.reduce((a, c) => a + c[0], "");
 console.log('only initial:', onlyInitials);
 
 ///////////////////////  9  ////////////////////////
 // sommare tutti i char di tutte le stringhe (unico return) (REDUCE)
 
-const sumCharsToNum = array2.reduce(function(acc, str) {
-    return acc + str.length;
-}, 0);
-
+const sumCharsToNum = array2.reduce((a, c) => a += c.length, 0);
 console.log('total number of characters:', sumCharsToNum);
 
 ///////////////////////  10  ////////////////////////
@@ -167,3 +164,54 @@ const array3 = [[1, 2, 3], [3, 2, 1, 0], [0, 0, 0, 0]];
 ///////////////////////  15  ////////////////////////
 // sommare tutti i numeri con indice uguale e restituire un array di risultati (REDUCE)
 
+// const sumOfEqualIndex = array3.reduce((a, c, i, original) => { // come si sceglie l'ordine in cui passiamo i parametri?
+//     if (i === 0) {
+//         a = c.map((n, i) => {
+//             original.forEach(array => {
+//                 sum += array[i];
+//             });
+//             return sum;
+//         })
+//         return a;
+//     } else {
+//         a = a.reduce((a, c, ))
+//     }
+// }, []);
+
+function sumOfEqualIndex(arrayOfArrays) {
+    
+    //1,2,3 -> 4,2,3
+    const parkingArray = [];
+
+    for (let i = 0; i < arrayOfArrays.length; i++) {
+        //3,2,1,0
+        const array = arrayOfArrays[i];
+                //0
+        for (let j = 0; j < array.length; j++) {
+                    //3
+            const element = array[j];
+            if (parkingArray[j]) { // sì esiste abbiamo 1,2,3
+                parkingArray[j] += element; // dunque ci sommo 3(indice0) a 1(indice0)
+            } else {
+                parkingArray[j] = element; // se è vuoto riempi - nel primo giro succede, al primo sottoarray
+            }
+        }
+    }
+    return parkingArray;
+}
+
+console.log(sumOfEqualIndex(array3));
+
+const sumOfEqualIndex2 = array3.reduce((a, c) => {
+    for (let j = 0; j < c.length; j++) {
+        const element = c[j];
+        if (a[j]) {
+            a[j] += element;
+        } else {
+            a[j] = element;
+        }
+    }
+    return a;
+}, []);
+
+console.log(sumOfEqualIndex2);
