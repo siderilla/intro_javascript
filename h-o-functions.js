@@ -174,3 +174,69 @@ console.log('reducing map sumAll', sumNumbers);
 const sumString = testArray2.reduce((a, c) => a + c, "");
 console.log ('sum all strings', sumString);
 
+// FIND your motivation
+
+function isEven(nbr) {
+    // if (nbr % 2 === 0) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
+    return (nbr % 2 === 0);
+} 
+
+console.log(testArray.filter(isEven));
+console.log(testArray.find(isEven)); // find è come filter, ma si ferma al primo numero pari che trova nell'array
+
+// SOME where over the rainbow
+
+console.log(testArray.some(isEven)); // c'è almeno un pari? true / false
+
+// EVERY body needs somebody
+
+console.log(testArray.every(isEven)); // sono TUTTI pari? true / false
+
+// SORT - mette in ordine in base ad ascii table, ma possiamo cambiarla
+
+function sortingFunction(first, second) { //
+    if (first < second) { // ordine decrescente
+        return 1; // se invertiamo l'ordine con cui controlla first > o < di second = ordine crescente
+    } else if (first > second) {
+        return -1;
+    } else {
+        return 0;
+    }
+}
+
+testArray.sort(sortingFunction);
+console.log('sorting completa ordine decrescente:', testArray);
+
+testArray.sort();
+console.log('ordine base di sort:', testArray);
+// così i numeri li mette in ordine come se li leggesse come stringhe, 
+// accedendo all'indice e controllando ciascuna unità separatamente, senza vedere che nell'ordine di 
+// grandezza 100 è più grande di 7, ma comunque lo mette al terzo posto perché inizia con 1, 
+// parimenti a 1 e 103
+
+// testArray.sort((f, s) => f - s); // ordine crescente
+// console.log('arrow function ordine crescente:', testArray);
+// testArray.sort((f, s) => s - f); // ordine decrescente
+// console.log('arrow function ordine decrescente:', testArray);
+
+// testArray2.sort((fString, sString) => fString.localeCompare(sString));
+// console.log('dalla a alla z:', testArray2);
+
+// testArray2.sort((fString, sString) => sString.localeCompare(fString));
+// console.log('dalla z alla a:',testArray2);
+
+// versione brutta:
+function betterSort(array, sortingFunction) {
+    const newArray = [...array];
+    newArray.sort(sortingFunction);
+    return newArray;
+}
+
+const sortedArray = betterSort(testArray2, (fString, sString) => fString.localeCompare(sString));
+console.log(testArray2);
+console.log(sortedArray);
+
